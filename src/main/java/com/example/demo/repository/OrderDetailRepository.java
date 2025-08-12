@@ -1,5 +1,14 @@
 package com.example.demo.repository;
 
-public class OrderDetailRepository {
-    
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.domain.Order;
+import com.example.demo.domain.OrderDetail;
+
+@Repository
+public interface OrderDetailRepository extends JpaRepository<Order, Long> {
+    List<OrderDetail> findByOrder(Order order);
 }
